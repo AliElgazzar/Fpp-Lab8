@@ -1,0 +1,104 @@
+
+
+public class LinkedListStack {
+
+    Node Header;
+
+    public LinkedListStack() {
+        Header = new Node();
+    }
+
+
+    public void push(Integer x) {
+
+        if (!isEmpty()) {
+
+            
+        }
+        // Push at first of list
+       /* Node n = new Node();
+        n.data = x;
+        n.next = Header.next;
+        Header.next = n;
+        if (Header.next != null) {
+            Header.next.prev = n;
+        }
+        n.prev = Header;*/
+
+        // push at last of list
+        Node n=new Node();
+        Node Current = Header;
+        while (Current.next != null) {
+            Current = Current.next;
+        }
+        n.data = x;
+      Current.prev.next = n;
+
+
+    }
+
+    public Integer pop() {
+
+
+
+
+
+    }
+
+    public Integer peek() {
+
+        if (isEmpty()) return null;
+        Node Current = Header;
+        while (Current.next != null) {
+            Current = Current.next;
+        }
+        return Current.data;
+    }
+
+    public boolean isEmpty() {
+        if (Header.next == null) return true;
+        else return false;
+    }
+
+    public int size() {
+         int size = 0;
+        Node current =Header;
+        while (current.next != null) {
+            current = current.next;
+            size++;
+        }
+        return size;
+    }
+
+    @Override
+    public String toString() {
+        if (top == -1) return "<empty>";
+        StringBuilder sb = new StringBuilder();
+        for (Integer x : arr) {
+            if (x != null)
+                sb.append(x.toString()).append(" ");
+        }
+        return sb.toString();
+    }
+
+    public class Node {
+        private int data;
+        private Node next;
+        private Node prev;
+
+    }
+
+    public static void main(String[] args) {
+        ArrayStack st = new ArrayStack();
+        st.push(1);
+        st.push(2);
+        System.out.println(st);
+        System.out.println(STR."Size = \{st.size()}");
+        System.out.println(st.isEmpty());
+        st.pop();
+        System.out.println(st);
+        st.pop();
+        System.out.println(st);
+    }
+
+}
